@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 300 20% 12%; 
+  --foreground: 300 10% 90%; 
+  --card: 300 18% 15%; 
+  --card-foreground: 300 10% 90%;
+  --popover: 300 18% 15%;
+  --popover-foreground: 300 10% 90%;
+  --primary: 300 60% 55%; 
+  --primary-foreground: 300 10% 95%;
+  --secondary: 120 25% 30%; 
+  --secondary-foreground: 120 10% 90%;
+  --muted: 300 15% 25%;
+  --muted-foreground: 300 10% 65%;
+  --accent: 330 50% 45%; 
+  --accent-foreground: 330 10% 95%;
+  --destructive: 0 70% 50%;
+  --destructive-foreground: 0 10% 95%;
+  --border: 300 15% 28%;
+  --input: 300 15% 28%;
+  --ring: 300 60% 65%; 
+  --radius: 0.5rem;
+
+  --nav-background: 300 25% 10%; 
+
+  --icon-tarot: 0 70% 55%; 
+  --icon-astrologia: 220 70% 55%; 
+  --icon-baralho-cigano: 120 60% 45%; 
+
+  --icon-email: 210 70% 50%; 
+  --icon-whatsapp: 135 65% 45%; 
+  --icon-map: 30 70% 50%; 
+
+  --tarot-page-bg-start: 0 50% 20%; 
+  --tarot-page-bg-end: 0 40% 30%; 
+  --tarot-page-primary: 0 70% 55%; 
+  --tarot-page-accent: 340 60% 50%; 
+
+  --astrologia-page-bg-start: 270 50% 15%; 
+  --astrologia-page-bg-end: 240 40% 25%; 
+  --astrologia-page-primary: 260 70% 60%; 
+  --astrologia-page-accent: 230 60% 55%; 
+
+  --baralho-cigano-page-bg-start: 120 35% 20%; 
+  --baralho-cigano-page-bg-end: 0 30% 25%; 
+  --baralho-cigano-page-primary: 120 60% 45%; 
+  --baralho-cigano-page-accent: 0 50% 40%; 
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+
+body {
+  color: hsl(var(--foreground));
+  background: hsl(var(--background));
+  font-family: 'Inter', sans-serif;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+
+main {
+  flex-grow: 1;
+}
+
+
+* {
+  border-color: hsl(var(--border));
+  box-sizing: border-box;
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.mystical-gradient {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 50%, hsl(var(--secondary)) 100%);
+}
+
+.cosmic-gradient {
+  background: linear-gradient(135deg, hsl(300, 50%, 30%) 0%, hsl(var(--primary)) 50%, hsl(300, 70%, 70%) 100%);
+}
+
+.aurora-gradient {
+  background: linear-gradient(135deg, hsl(300,30%,20%) 0%, hsl(300,40%,30%) 25%, hsl(var(--primary)) 50%, hsl(var(--accent)) 75%, hsl(120,20%,40%) 100%);
+}
+
+.glass-effect {
+  background: hsla(var(--card) / 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid hsla(var(--border) / 0.3);
+}
+
+.floating-animation {
+  animation: floating 6s ease-in-out infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 15px hsla(var(--primary) / 0.4); }
+  100% { box-shadow: 0 0 30px hsla(var(--primary) / 0.7); }
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 30px hsla(var(--primary) / 0.25);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--secondary)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.star-field {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1.5px 1.5px at 20px 30px, hsl(var(--foreground)), transparent),
+    radial-gradient(1.5px 1.5px at 40px 70px, hsla(var(--foreground)/0.8), transparent),
+    radial-gradient(1px 1px at 90px 40px, hsl(var(--foreground)), transparent),
+    radial-gradient(1px 1px at 130px 80px, hsla(var(--foreground)/0.6), transparent),
+    radial-gradient(1.5px 1.5px at 160px 30px, hsl(var(--foreground)), transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: twinkle 10s linear infinite;
+  opacity: 0.7;
+  z-index: 0;
+}
+
+.relative > .star-field {
+  z-index: 0;
+}
+
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+.tarot-page-bg {
+  background: linear-gradient(135deg, hsl(var(--tarot-page-bg-start)) 0%, hsl(var(--tarot-page-bg-end)) 100%);
+}
+.tarot-page-text-gradient {
+  background: linear-gradient(135deg, hsl(var(--tarot-page-primary)), hsl(var(--tarot-page-accent)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.tarot-page-button-gradient {
+  background: linear-gradient(135deg, hsl(var(--tarot-page-primary)) 0%, hsl(var(--tarot-page-accent)) 100%);
+}
+
+.astrologia-page-bg {
+  background: linear-gradient(135deg, hsl(var(--astrologia-page-bg-start)) 0%, hsl(var(--astrologia-page-bg-end)) 100%);
+}
+.astrologia-page-text-gradient {
+  background: linear-gradient(135deg, hsl(var(--astrologia-page-primary)), hsl(var(--astrologia-page-accent)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.astrologia-page-button-gradient {
+  background: linear-gradient(135deg, hsl(var(--astrologia-page-primary)) 0%, hsl(var(--astrologia-page-accent)) 100%);
+}
+
+.baralho-cigano-page-bg {
+  background: linear-gradient(135deg, hsl(var(--baralho-cigano-page-bg-start)) 0%, hsl(var(--baralho-cigano-page-bg-end)) 100%);
+}
+.baralho-cigano-page-text-gradient {
+  background: linear-gradient(135deg, hsl(var(--baralho-cigano-page-primary)), hsl(var(--baralho-cigano-page-accent)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.baralho-cigano-page-button-gradient {
+  background: linear-gradient(135deg, hsl(var(--baralho-cigano-page-primary)) 0%, hsl(var(--baralho-cigano-page-accent)) 100%);
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.input-group-icon {
+  position: absolute;
+  left: 0.75rem; 
+  top: 50%;
+  transform: translateY(-50%);
+  color: hsl(var(--muted-foreground));
+  pointer-events: none; 
+}
+
+.input-with-icon {
+  padding-left: 2.5rem !important;
+}
+
+.textarea-with-icon {
+  padding-left: 2.5rem !important;
+}
+
+.input-group-icon-external {
+  margin-right: 0.5rem; 
+  color: hsl(var(--muted-foreground));
+}
+
+.input-field-external-icon {
+  flex-grow: 1;
+}
